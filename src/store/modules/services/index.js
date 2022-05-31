@@ -7,26 +7,36 @@ export default {
     state() {
         return {
             services: [
-                {
-                  id: 'c1',
-                  serviceTitle: 'Programing/Development',
-                  firstName: 'Madison',
-                  lastName: 'Ivy',
-                  areas: ['frontend', 'backend', 'career'],
-                  description:
-                    "Hi Im madiosn ill teach you whatever you want",
-                  hourlyRate: 30
-                },
-                {
-                  id: 'c2',
-                  serviceTitle: 'Programing/Development',
-                  firstName: 'Julie',
-                  lastName: 'Jones',
-                  areas: ['frontend', 'career'],
-                  description:
-                    'Hi Im madiosn ill teach you whatever you want',
-                  hourlyRate: 30
-                }
+                // {
+                //   id: 'c1',
+                //   serviceTitle: 'Programing/Development',
+                //   firstName: 'Madison',
+                //   lastName: 'Ivy',
+                //   areas: ['business', 'development', 'other'],
+                //   description:
+                //     "Hi Im madiosn ill teach you whatever you want",
+                //   hourlyRate: 30
+                // },
+                // {
+                //   id: 'c2',
+                //   serviceTitle: 'Programing/Development',
+                //   firstName: 'Julie',
+                //   lastName: 'Jones',
+                //   areas: ['business', 'other'],
+                //   description:
+                //     'Hi Im madiosn ill teach you whatever you want',
+                //   hourlyRate: 30
+                // },
+                // {
+                //   id: 'c3',
+                //   serviceTitle: 'Programing/Development',
+                //   firstName: 'Julie',
+                //   lastName: 'Jones',
+                //   areas: ['development'],
+                //   description:
+                //     'Hi Im madiosn ill teach you whatever you want',
+                //   hourlyRate: 30
+                // }
               ]
         };
     },

@@ -49,6 +49,7 @@ export default {
       return this.selectedService.hourlyRate;
     },
     contactLink() {
+      
       return this.$route.path + '/' + this.id + '/contact';
     }
   },

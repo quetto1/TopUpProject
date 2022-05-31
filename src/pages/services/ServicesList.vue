@@ -1,41 +1,80 @@
 <template>
-  <section>Filter</section>
   <section>
-      <base-card>
-    <div class="controls">
-      <base-button mode="outline">Reload</base-button>
-      <base-button link to="/register">Register</base-button>
-    </div>
-    <ul v-if="hasServices">
-      <service-item
-        v-for="service in filteredServices"
-        :key="service.id"
-        :id="service.id"
-        :service-title="service.serviceTitle"
-        :first-name="service.firstName"
-        :last-name="service.lastName"
-        :rate="service.hourlyRate"
-        :areas="service.areas"
-      ></service-item>
-    </ul>
-    <h3 v-else>No services found.</h3>
+    <service-filter @change-filter="setFilters"></service-filter>
+  </section>
+  <section>
+    <base-card>
+      <div class="controls">
+        <base-button mode="outline" @click="loadServices">Reload</base-button>
+        <base-button v-if="!isService" link to="/register">Register</base-button>
+      </div>
+      <ul v-if="hasServices">
+        <service-item
+          v-for="service in filteredServices"
+          :key="service.id"
+          :id="service.id"
+          :service-title="service.serviceTitle"
+          :first-name="service.firstName"
+          :last-name="service.lastName"
+          :rate="service.hourlyRate"
+          :areas="service.areas"
+        ></service-item>
+      </ul>
+      <h3 v-else>No services found.</h3>
     </base-card>
   </section>
 </template>
 
 <script>
 import ServiceItem from "../../components/services/ServiceItem.vue";
+import ServiceFilter from "../../components/services/ServiceFilter.vue";
 
 export default {
-  components: { ServiceItem },
+  components: { ServiceItem, ServiceFilter },
+  data() {
+    return {
+      activeFilters: {
+        business: true,
+        development: true,
+        other: true,
+      },
+    };
+  },
   computed: {
     filteredServices() {
       // the first one is the namesapce name and second one it the name of the getter
-      return this.$store.getters["services/services"];
+      const services = this.$store.getters["services/services"];
+      //Gives back the services with attached categories
+      return services.filter(service =>{
+        if (this.activeFilters.business && service.areas.includes('business')) {
+          return true;
+        }
+        if (this.activeFilters.development && service.areas.includes('development')) {
+          return true;
+        }
+        if (this.activeFilters.other && service.areas.includes('other')) {
+          return true;
+        }
+        return false;
+      })
+    },
+    isService(){
+      return this.$store.getters['services/isService'];
     },
     hasServices() {
       return this.$store.getters["services/hasServices"];
     },
+  },
+  created() {
+    this.loadServices();
+  },
+  methods: {
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
+    },
+    loadServices(){
+      this.$store.dispatch('services/loadServices');
+    }
   },
 };
 </script>

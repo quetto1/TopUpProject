@@ -27,17 +27,17 @@ export default {
   margin-right: 0.5rem;
 }
 
-.frontend {
+.business {
   background-color: #3d008d;
   color: white;
 }
 
-.backend {
+.development {
   background-color: #71008d;
   color: white;
 }
 
-.career {
+.other {
   background-color: #8d006e;
   color: white;
 }
