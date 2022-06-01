@@ -5,7 +5,7 @@
             <ul>
                 <li><router-link to="/services">Services!</router-link></li>
                 <li v-if="isLoggedIn">
-                  <router-link  to="/requests">Requests</router-link>
+                  <router-link  to="/requests">Mailbox</router-link>
                 </li>
                 <li v-else><router-link to="/auth">Login</router-link></li>
                <li v-if="isLoggedIn"><base-button @click="logout">Logout</base-button></li> 
@@ -72,7 +72,7 @@ h1 a.router-link-active {
 }
 
 header nav {
-  width: 90%;
+  width: 640px;
   margin: auto;
   display: flex;
   justify-content: space-between;
