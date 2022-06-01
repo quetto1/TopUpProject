@@ -10,6 +10,18 @@
       <label for="development">Development</label>
     </span>
     <span class="filter-option">
+      <input type="checkbox" id="teaching" checked @change="filterHandler" />
+      <label for="teaching">Teaching</label>
+    </span>
+    <span class="filter-option">
+      <input type="checkbox" id="design" checked @change="filterHandler" />
+      <label for="design">Design</label>
+    </span>
+    <span class="filter-option">
+      <input type="checkbox" id="fitness" checked @change="filterHandler" />
+      <label for="fitness">Fitness</label>
+    </span>
+    <span class="filter-option">
       <input type="checkbox" id="other" checked @change="filterHandler" />
       <label for="other">Other</label>
     </span>
@@ -23,6 +35,9 @@ export default {
             filters: {
                 business: true,
                 development: true,
+                teaching: true,
+                design: true,
+                fitness: true,
                 other: true
             }
         };

@@ -36,7 +36,7 @@ a {
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: #3a0061;
+  background-color: black;
   border: 1px solid #3a0061;
   color: white;
   cursor: pointer;
@@ -55,14 +55,14 @@ button:active {
 
 .flat {
   background-color: transparent;
-  color: #3a0061;
+  color: black;
   border: none;
 }
 
 .outline {
   background-color: transparent;
   border-color: #270041;
-  color: #270041;
+  color: black;
 }
 
 .flat:hover,

@@ -1,14 +1,15 @@
 <template>
     <li>
-        <h2>{{serviceTitle}}</h2>
+        <h1>{{serviceTitle}}</h1>
         <h3>{{fullName}}</h3>
-        <h4>${{rate}}</h4>
+        <h4>Price: {{rate}}DKK</h4>
+        <hr>
         <div>
             <base-badge v-for="area in areas" :key="area" :type="area" :title="area"></base-badge>
         </div>
         <div class="actions">
-            <base-button mode="outLine" link :to="serviceContactLink">Contact</base-button>
-            <base-button link :to="serviceDetailsLink">View Details</base-button>
+            <base-button mode="outLine" link :to="serviceContactLink">Show details</base-button>
+            <!-- <base-button link :to="serviceDetailsLink">View Details</base-button> -->
         </div>
     </li>
 </template>
@@ -38,10 +39,15 @@ li {
   border: 1px solid #424242;
   border-radius: 12px;
   padding: 1rem;
+  text-align: center;
+}
+
+h1{
+  font-size: 1.8rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 h3,

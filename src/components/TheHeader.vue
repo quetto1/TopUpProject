@@ -1,28 +1,50 @@
 <template>
     <header>
         <nav>
-            <h1><router-link to="/">Find your service!</router-link></h1>
+            <h1><router-link to="/">Service App!</router-link></h1>
             <ul>
                 <li><router-link to="/services">Services!</router-link></li>
-                <li><router-link to="/requests">Requests</router-link></li>
+                <li v-if="isLoggedIn">
+                  <router-link  to="/requests">Requests</router-link>
+                </li>
+                <li v-else><router-link to="/auth">Login</router-link></li>
+               <li v-if="isLoggedIn"><base-button @click="logout">Logout</base-button></li> 
+
             </ul>
         </nav>
     </header>
 </template>
-
+  <script>
+import BaseButton from './ui/BaseButton.vue';
+  export default {
+  components: { BaseButton },
+    computed: {
+      isLoggedIn(){
+        return this.$store.getters.isAuthenticated;
+      }
+    },
+    methods: {
+      logout() {
+        this.$store.dispatch('logout');
+      }
+    }
+  }
+  </script>
 <style scoped>
 header {
   width: 100%;
   height: 5rem;
-  background-color: #3d008d;
+  background-color: #000000;
+  border-bottom: 1px solid black ;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 header a {
   text-decoration: none;
-  color: #f391e3;
+  color: whitesmoke;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
@@ -31,7 +53,7 @@ header a {
 a:active,
 a:hover,
 a.router-link-active {
-  border: 1px solid #f391e3;
+  border: 1px solid whitesmoke;
 }
 
 h1 {

@@ -31,7 +31,9 @@ export default {
     // id of the service for whoom user we want to fetch all the requests
     const serviceId = context.rootGetters.userId;
     // it fetches all the requests that can be found under certain serviceId in firesbae
-    const response = await fetch(`https://web-development-project-8ae61-default-rtdb.europe-west1.firebasedatabase.app/requests/${serviceId}.json`)
+
+    const token = context.rootGetters.token;
+    const response = await fetch(`https://web-development-project-8ae61-default-rtdb.europe-west1.firebasedatabase.app/requests/${serviceId}.json?auth=`+ token)
     const responseData = await response.json(); 
 
     const requests = [];

@@ -6,7 +6,8 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline" @click="loadServices">Reload</base-button>
-        <base-button v-if="!isService" link to="/register">Register</base-button>
+        <base-button v-if="!isLoggedIn" link to="/auth">Login</base-button>
+        <base-button v-if="isLoggedIn" link to="/register">Register</base-button>
       </div>
       <ul v-if="hasServices">
         <service-item
@@ -41,6 +42,9 @@ export default {
     };
   },
   computed: {
+    isLoggedIn(){
+      return this.$store.getters.isAuthenticated;
+    },
     filteredServices() {
       // the first one is the namesapce name and second one it the name of the getter
       const services = this.$store.getters["services/services"];

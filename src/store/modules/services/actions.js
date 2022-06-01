@@ -12,9 +12,10 @@ export default {
       areas: data.areas,
     };
 
+    const token = context.rootGetters.token;
     //firebase request
     const response = await fetch(
-      `https://web-development-project-8ae61-default-rtdb.europe-west1.firebasedatabase.app/services/${userId}.json`,
+      `https://web-development-project-8ae61-default-rtdb.europe-west1.firebasedatabase.app/services/${userId}.json?auth=` + token,
       {
         //specifies kind of request
         method: "PUT",

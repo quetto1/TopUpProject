@@ -6,6 +6,8 @@ import ServiceRegistration from "./pages/services/ServiceRegistration.vue";
 import ContactService from "./pages/requests/ContactService.vue";
 import NotFound from "./pages/requests/NotFound.vue";
 import ReqRecived from "./pages/requests/ReqRecived.vue";
+import UserAuth from "./pages/authentication/UserAuth.vue"
+
 
 //routes set up
 const router = createRouter({
@@ -24,6 +26,7 @@ const router = createRouter({
     },
     { path: "/register", component: ServiceRegistration },
     { path: "/requests", component: ReqRecived },
+    { path: "/auth", component: UserAuth },
     //route for invalid path
     { path: "/:notFound(.*)", component: NotFound }
   ]

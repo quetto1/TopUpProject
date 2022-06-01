@@ -36,6 +36,18 @@ export default {
   background-color: #71008d;
   color: white;
 }
+.design {
+  background-color: #a70202;
+  color: white;
+}
+.teaching {
+  background-color: #cabd05;
+  color: white;
+}
+.fitness {
+  background-color: #137c1b;
+  color: white;
+}
 
 .other {
   background-color: #8d006e;

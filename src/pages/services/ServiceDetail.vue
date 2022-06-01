@@ -10,7 +10,7 @@
     <base-card>
       <header>
         <h2>Contact person now!</h2>
-        <base-button link :to="contactLink">Contact Person</base-button>
+        <!-- <base-button link :to="contactLink">Contact Person</base-button> -->
       </header>
       <router-view></router-view>
     </base-card>

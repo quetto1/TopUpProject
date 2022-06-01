@@ -36,6 +36,18 @@
                 <label for="development">Development/IT service</label>
             </div>
             <div>
+                <input type="checkbox" id="teaching" value="teaching" v-model="areas.val">
+                <label for="teaching">Are you a teacher?</label>
+            </div>
+            <div>
+                <input type="checkbox" id="design" value="design" v-model="areas.val">
+                <label for="design">Design</label>
+            </div>
+            <div>
+                <input type="checkbox" id="fitness" value="fitness" v-model="areas.val">
+                <label for="fitness">Fitness/sport service?</label>
+            </div>
+            <div>
                 <input type="checkbox" id="other" value="other" v-model="areas.val">
                 <label for="other">Other service</label>
             </div>
