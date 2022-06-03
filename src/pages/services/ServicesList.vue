@@ -7,7 +7,6 @@
       <div class="controls">
         <base-button mode="outline" @click="loadServices">Reload</base-button>
         <base-button v-if="!isLoggedIn" link to="/auth">Login</base-button>
-        <base-button v-if="isLoggedIn" link to="/register">Register</base-button>
       </div>
       <ul v-if="hasServices">
         <service-item
@@ -37,6 +36,9 @@ export default {
       activeFilters: {
         business: true,
         development: true,
+        teaching: true,
+        design: true,
+        fitness: true,
         other: true,
       },
     };
@@ -56,6 +58,15 @@ export default {
         if (this.activeFilters.development && service.areas.includes('development')) {
           return true;
         }
+        if (this.activeFilters.teaching && service.areas.includes('teaching')) {
+          return true;
+        }
+        if (this.activeFilters.design && service.areas.includes('design')) {
+          return true;
+        }
+        if (this.activeFilters.fitness && service.areas.includes('fitness')) {
+          return true;
+        }
         if (this.activeFilters.other && service.areas.includes('other')) {
           return true;
         }
@@ -73,12 +84,12 @@ export default {
     this.loadServices();
   },
   methods: {
-    setFilters(updatedFilters) {
-      this.activeFilters = updatedFilters;
-    },
     loadServices(){
       this.$store.dispatch('services/loadServices');
-    }
+    },
+     setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
+    },
   },
 };
 </script>

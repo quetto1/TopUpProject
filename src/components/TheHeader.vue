@@ -1,45 +1,50 @@
 <template>
-    <header>
-        <nav>
-            <h1><router-link to="/">Service App!</router-link></h1>
-            <ul>
-                <li><router-link to="/services">Services!</router-link></li>
-                <li v-if="isLoggedIn">
-                  <router-link  to="/requests">Mailbox</router-link>
-                </li>
-                <li v-else><router-link to="/auth">Login</router-link></li>
-               <li v-if="isLoggedIn"><base-button @click="logout">Logout</base-button></li> 
-
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <h1><router-link to="/">Service App!</router-link></h1>
+      <ul>
+        <li>
+          <base-button v-if="isLoggedIn" link to="/register"
+            >Register service</base-button
+          >
+        </li>
+        <li><router-link to="/services">Services!</router-link></li>
+        <li v-if="isLoggedIn">
+          <router-link to="/requests">Mailbox</router-link>
+        </li>
+        <li v-else><router-link to="/auth">Login</router-link></li>
+        <li v-if="isLoggedIn">
+          <base-button @click="logout">Logout</base-button>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
-  <script>
-import BaseButton from './ui/BaseButton.vue';
-  export default {
+<script>
+import BaseButton from "./ui/BaseButton.vue";
+export default {
   components: { BaseButton },
-    computed: {
-      isLoggedIn(){
-        return this.$store.getters.isAuthenticated;
-      }
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
     },
-    methods: {
-      logout() {
-        this.$store.dispatch('logout');
-      }
-    }
-  }
-  </script>
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
+  },
+};
+</script>
 <style scoped>
 header {
   width: 100%;
   height: 5rem;
   background-color: #000000;
-  border-bottom: 1px solid black ;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 header a {
@@ -72,7 +77,7 @@ h1 a.router-link-active {
 }
 
 header nav {
-  width: 640px;
+  width: 1140px;
   margin: auto;
   display: flex;
   justify-content: space-between;

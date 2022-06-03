@@ -37,7 +37,7 @@
             </div>
             <div>
                 <input type="checkbox" id="teaching" value="teaching" v-model="areas.val">
-                <label for="teaching">Are you a teacher?</label>
+                <label for="teaching">Teacher</label>
             </div>
             <div>
                 <input type="checkbox" id="design" value="design" v-model="areas.val">
@@ -45,7 +45,7 @@
             </div>
             <div>
                 <input type="checkbox" id="fitness" value="fitness" v-model="areas.val">
-                <label for="fitness">Fitness/sport service?</label>
+                <label for="fitness">Fitness</label>
             </div>
             <div>
                 <input type="checkbox" id="other" value="other" v-model="areas.val">
