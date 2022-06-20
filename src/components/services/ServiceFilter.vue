@@ -78,4 +78,5 @@ h2 {
 .filter-option.active label {
   font-weight: bold;
 }
+
 </style>
