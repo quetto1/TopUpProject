@@ -4,7 +4,6 @@
     <h2>Register new service!</h2>
     <service-form @save-data="storeData"></service-form>
     </base-card>
-    
 </section>
 
 </template>

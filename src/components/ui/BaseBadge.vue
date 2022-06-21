@@ -20,11 +20,13 @@ export default {
 <style scoped>
 .badge {
   background-color: #ccc;
-  color: #252525;
+  color: black;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
   display: inline-block;
   margin-right: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .business {

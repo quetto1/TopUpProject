@@ -1,6 +1,9 @@
 <template>
   <form @submit.prevent="submitForm">
+
     <base-card>
+  <h1>{{switchModeHeaderCaption}}</h1>
+
       <div class="form-control">
         <label for="email">E-Mail</label>
         <input type="email" id="email" v-model.trim="email" />
@@ -56,11 +59,17 @@ export default {
           console.log("signup"+" "+actionPayload.email+" "+actionPayload.password);
 
         }
+
         console.log("not error");
       } catch (err) {
         this.error = err.message || "failed to authenticate";
         console.log("Error");
       }
+
+        //fix here
+            return this.$router.push("services")
+     
+
     },
     switchAuthMode() {
       if (this.mode === "login") {
@@ -83,6 +92,13 @@ export default {
         return "Signup instead";
       } else {
         return "Login instead";
+      }
+    },
+    switchModeHeaderCaption() {
+      if (this.mode === "login") {
+        return "Welcome and login!";
+      } else {
+        return "Creat new account!";
       }
     },
   },
@@ -110,12 +126,40 @@ textarea {
   font: inherit;
   border: 1px solid #ccc;
   padding: 0.15rem;
+  transition: all 0.3s;
 }
 
 input:focus,
 textarea:focus {
   border-color: #3d008d;
-  background-color: #faf6ff;
+  background-color: #3d008d;
   outline: none;
+  transition: all 0.3s;
+
+}
+button{
+  margin-top: 20px;
+  width: 220px;
+  font-weight: 700;
+  transition: all 0.3s;
+
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  background-color: #f4ebff;
+  outline: none;
+  border-color: #590696;
 }
 </style>

@@ -12,9 +12,9 @@
         <li v-if="isLoggedIn">
           <router-link to="/requests">Mailbox</router-link>
         </li>
-        <li v-else><router-link to="/auth">Login</router-link></li>
+        <li v-else><router-link  class="logout-button" to="/auth">Login</router-link></li>
         <li v-if="isLoggedIn">
-          <base-button @click="logout">Logout</base-button>
+          <base-button class="logout-button" @click="logout">Logout</base-button>
         </li>
       </ul>
     </nav>
@@ -40,11 +40,13 @@ export default {
 header {
   width: 100%;
   height: 5rem;
-  background-color: #000000;
+  background-color: #590596;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
+
 }
 
 header a {
@@ -53,12 +55,16 @@ header a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
+  border-radius: 5px;
+
 }
 
 a:active,
 a:hover,
 a.router-link-active {
-  border: 1px solid whitesmoke;
+  background-color: #6d05b8;
+  border:none;
+  transition: all 0.3s;
 }
 
 h1 {
@@ -95,5 +101,13 @@ header ul {
 
 li {
   margin: 0 0.5rem;
+}
+.logout-button{
+  border: white solid 1px;
+}
+.logout-button:hover,
+.logout-button:active,
+{
+  border: white solid 1px;
 }
 </style>

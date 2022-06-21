@@ -1,7 +1,6 @@
 export default {
   async addService(context, data) {
     const userId = context.rootGetters.userId;
-
     // taking values from the form and reasigned them to servcieData objeect
     const serviceData = {
       serviceTitle: data.title,
@@ -10,8 +9,8 @@ export default {
       description: data.desc,
       hourlyRate: data.rate,
       areas: data.areas,
+      pictureLink: data.pictureLink,
     };
-
     const token = context.rootGetters.token;
     //firebase request
     const response = await fetch(
@@ -24,12 +23,9 @@ export default {
       }
     );
 
-    // const responseData = await response.json();
-
     if (!response.ok) {
       // error
     }
-
     //comiting mutation with transformed data
     context.commit("addService", {
       ...serviceData,
@@ -47,7 +43,8 @@ export default {
     if (!response.ok) {
       // ...
     }
-    // data has to be transformed becuase it is tored as an object therfor is needed to store it in array instead to go through all services
+ 
+    // fetched services are stored in the service array
     const services = [];
 
     for (const key in responseData) {
@@ -59,6 +56,7 @@ export default {
         description: responseData[key].description.val,
         hourlyRate: responseData[key].hourlyRate.val,
         areas: responseData[key].areas.val,
+        pictureLink: responseData[key].pictureLink ? responseData[key].pictureLink.val : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019'
       };
       services.push(service);
     }

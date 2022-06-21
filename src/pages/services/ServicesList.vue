@@ -5,8 +5,8 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline" @click="loadServices">Reload</base-button>
-        <base-button v-if="!isLoggedIn" link to="/auth">Login</base-button>
+        
+        <!-- <base-button v-if="!isLoggedIn" link to="/auth">Login</base-button> -->
       </div>
       <ul v-if="hasServices">
         <service-item
@@ -18,6 +18,7 @@
           :last-name="service.lastName"
           :rate="service.hourlyRate"
           :areas="service.areas"
+          :picture-link="service.pictureLink"
         ></service-item>
       </ul>
       <h3 v-else>No services found.</h3>
@@ -28,6 +29,7 @@
 <script>
 import ServiceItem from "../../components/services/ServiceItem.vue";
 import ServiceFilter from "../../components/services/ServiceFilter.vue";
+import refreshIcon from "../../icons/refresh.png";
 
 export default {
   components: { ServiceItem, ServiceFilter },
@@ -40,6 +42,7 @@ export default {
         design: true,
         fitness: true,
         other: true,
+        refreshIcon: refreshIcon,
       },
     };
   },
@@ -87,6 +90,9 @@ export default {
     loadServices(){
       this.$store.dispatch('services/loadServices');
     },
+    refreshClient(){
+      this.$router.go();
+    },
      setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
@@ -94,6 +100,23 @@ export default {
 };
 </script>
 <style scoped>
+.img-wrapper{
+  background-color: rgba(89,6,150,1);
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.img-wrapper:hover{
+  background-color: rgba(89,6,150,0.7);
+  transform: rotateZ(360deg);
+}
+img{
+}
+h1{
+  
+}
 ul {
   list-style: none;
   margin: 0;
@@ -102,6 +125,20 @@ ul {
 
 .controls {
   display: flex;
-  justify-content: space-between;
 }
+/* reload button */
+
+body{
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.reloadSingle div{
+  display: inline-block;
+  position: relative;
+  -webkit-animation: rotate 1.5s linear infinite;
+  animation: rotate 1.5s linear infinite;
+}
+
+
 </style>

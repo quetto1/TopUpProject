@@ -19,9 +19,9 @@ const router = createRouter({
     {
       path: "/services/:id",
       component: ServiceDetail,
-      props: true, //this allows to call the page by id via props
+      props: true, // allows to call the page by id via props
       children: [
-        { path: "contact", component: ContactService }, //service/id/contact
+        { path: "contact", component: ContactService }, //services/id/contact
       ]
     },
     { path: "/register", component: ServiceRegistration },

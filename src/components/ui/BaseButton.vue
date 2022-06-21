@@ -36,11 +36,11 @@ a {
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: black;
+  background-color: #590596;
   border: 1px solid #3a0061;
   color: white;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-right: 0.5rem;
   display: inline-block;
 }
@@ -49,8 +49,8 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #270041;
-  border-color: #270041;
+  background-color: #590596;
+  border-color: white;
 }
 
 .flat {
@@ -69,6 +69,8 @@ button:active {
 .flat:active,
 .outline:hover,
 .outline:active {
-  background-color: #edd2ff;
+  background-color: #590596;
+  color: white;
+
 }
 </style>
